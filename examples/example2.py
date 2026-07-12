@@ -47,8 +47,7 @@ for i in range(N):
     for j in range(N):
         Z[i,j]  = potential(x[i], y[j])
 
-plt.figure(figsize=(6,6))
-plt.axis('equal')
+plt.figure(figsize=(7,6))
 plt.contourf(X,Y,Z, levels = 50)
 for _ in range (5):
     start = np.random.random(2)
@@ -59,4 +58,12 @@ for _ in range (5):
         plt.plot(traj[:,0], traj[:,1])
         plt.scatter([traj[0,0], traj[-1,0]], [traj[0,1], traj[-1,1]])
 
+
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('Trajectries in Potential field')
+plt.colorbar(label = 'V')
+plt.axis('tight')
+plt.savefig('Potential_example.png', dpi = 300)
 plt.show()
+
