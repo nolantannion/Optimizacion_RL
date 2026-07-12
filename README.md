@@ -44,57 +44,23 @@ Final metrics are obtained averaging all the results, being the uncertainity the
 
 The potentials used to evaluate are the following.
 
-#### Potential $V_0$
+#### Potential V0
 
-$$
-V_0(x,y)
-=
-0.4\sin(5x)\cos(4y)
-+
-\exp\left(
--\frac{(x-0.2)^2+(y-0.8)^2}{0.01}
-\right)
--
-1.2\exp\left(
--\frac{(x-0.7)^2+(y-0.3)^2}{0.02}
-\right)
-$$
+$V_0(x,y) = 0.4\sin(5x)\cos(4y)+\exp\left(-\frac{(x-0.2)^2+(y-0.8)^2}{0.01}\right)-1.2\exp\left(-\frac{(x-0.7)^2+(y-0.3)^2}{0.02}\right)$
 
-#### Potential $V_1$
+#### Potential V1
 
-$$
-V_1(x,y)
-=
--\exp\left(
--\frac{(x-0.3)^2+(y-0.3)^2}{0.12}
-\right)
--
-\exp\left(
--\frac{(x-0.7)^2+(y-0.7)^2}{0.12}
-\right)
-$$
+$V_1(x,y) = -\exp\left(-\frac{(x-0.3)^2+(y-0.3)^2}{0.12}\right)-\exp\left(-\frac{(x-0.7)^2+(y-0.7)^2}{0.12}\right)$
 
-#### Potential $V_2$
+#### Potential V2
 
-$$
-V_2(x,y)
-=
-0.3\sin(4x)\sin(3y)
--
-\exp\left(
--\frac{(x-0.6)^2+(y-0.6)^2}{0.03}
-\right)
-+
-0.5\exp\left(
--\frac{(x-0.3)^2+(y-0.2)^2}{0.02}
-\right)
-$$
+$V_2(x,y)=0.3\sin(4x)\sin(3y)-\exp\left(-\frac{(x-0.6)^2+(y-0.6)^2}{0.03}\right)+0.5\exp\left(-\frac{(x-0.3)^2+(y-0.2)^2}{0.02}\right)$
 
 ### Results 
 The evaluation baseline is a comparison with the trivial linear trajectory that connects the start and goal points. The terms used to evaluate are:
 
-* **Success rate**: $ 91 \pm  2 \, \, \%$ of trajectories reach the target.
-* **Improvement Rate**: $ 56 \pm 6 \, \, \%$ of the successful trajectories improve energy consuption over the baseline.
+**Success rate**: $91 \pm  2  $% of trajectories reach the target. \
+**Improvement Rate**: $56 \pm 6 $% of the successful trajectories improve energy consuption over the baseline.
 
 The scripts used to reproduce these measurements are available in the `evaluation/` directory.
 
@@ -183,10 +149,7 @@ def potential(x, y):
 
 
 def gradient(x, y):
-    return np.array([
-        2 * np.pi * np.cos(2 * np.pi * x),
-        0.0
-    ], dtype=np.float32)
+    return np.array([2 * np.pi * np.cos(2 * np.pi * x), 0.0], dtype=np.float32)
 ```
 
 Create the environment and load the pre-trained model:
@@ -234,6 +197,7 @@ It can be executed from the repository root using:
 ```bash
 python -m examples.basic_use
 ```
+**For ideal functioning user should execute the terminal command with the corresponding .venv activated and being located in the Optimizacion_RL folder**
 
 ## Environment
 
